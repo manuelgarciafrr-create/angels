@@ -15,9 +15,9 @@ if (window.location.pathname.includes("admin.html")) {
 const PRODUCTOS_DATA = [
     {
         id: 1,
-        nombre: "CAMISETA OVERSIZE MÉTRICA FRAGMENT",
-        precio: "20",
-        imagenes: ["imagenes/fragmentdelante.png", "imagenes/fragmentdetras.png"], 
+        nombre: "Bálsamo exfoliante e hidratante tono rose",
+        precio: "10",
+        imagenes: ["bálsamo.jpeg"], 
         colores: ["Negro", "Blanco"],
         tallas: ["S", "M", "L", "XL"]
     },
