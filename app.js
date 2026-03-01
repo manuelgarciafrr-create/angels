@@ -15,7 +15,7 @@ if (window.location.pathname.includes("admin.html")) {
 const PRODUCTOS_DATA = [
     {
         id: 1,
-        nombre: "Bálsamo exfoliante e hidratante tono rose",
+        nombre: "Balsamo exfoliante e hidratante tono rose",
         precio: "10",
         imagenes: ["bálsamo.jpeg"], 
         colores: ["Negro", "Blanco"],
