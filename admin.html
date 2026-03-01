@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Panel de Control</h1>
+    <a href="index.html">← Volver a la tienda</a>
+
+    <form id="formulario-producto">
+        <input type="text" id="nombre" placeholder="Nombre del producto" required>
+        <input type="number" id="precio" placeholder="Precio" required>
+        <input type="text" id="imagen" placeholder="URL de la imagen (Ej: de Google)" required>
+        <button type="submit">Guardar Producto</button>
+    </form>
+
+    <hr>
+    <h2>Tus Productos Actuales</h2>
+    <div id="lista-admin" class="grid-productos">
+        </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
