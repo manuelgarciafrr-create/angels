@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angels</title>
+    <style>
+        /* Estilos generales y móviles */
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: #fff5f7; 
+            margin: 0; 
+            padding: 15px; 
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 { color: #be185d; margin-bottom: 15px; font-size: 1.8rem; }
+
+        /* Buscador */
+        #buscador {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border: 2px solid #fbcfe8;
+            border-radius: 25px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            outline: none;
+        }
+
+        #buscador:focus { border-color: #db2777; }
+
+        /* Cuadrícula de productos */
+        #catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta de producto */
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #fce7f3;
+        }
+
+        .card img { 
+            width: 100%; 
+            height: 170px; 
+            object-fit: cover; 
+            background: #eee;
+        }
+
+        .info { padding: 12px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+
+        .card h3 { 
+            font-size: 0.9rem; 
+            margin: 5px 0; 
+            color: #444; 
+            height: 38px; 
+            overflow: hidden; 
+        }
+
+        .card p { color: #db2777; font-weight: bold; font-size: 1.1rem; margin: 8px 0; }
+
+        /* Botón WhatsApp */
+        .btn-whatsapp {
+            background: #df59cd;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-top: auto;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:active { transform: scale(0.95); background: #128c7e; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mis Maquillajes</h1>
+        <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="filtrarProductos()">
+    </header>
+
+    <div id="catalogo">Cargando productos...</div>
+
+    <script>
+        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSzQ1wQGpHUJM47tE1FTd84J6JZSFHcCFVTwjwATQqFHJFxDFjORM4tEK5WcHAyCFe43PdrkVS60m9d/pub?output=csv'; 
+        const MI_TELEFONO = "584124132220"; 
+        
+        let productosData = []; // Guardaremos los productos aquí para el buscador
+
+        async function cargarProductos() {
+            try {
+                const respuesta = await fetch(SHEET_URL);
+                const csvText = await respuesta.text();
+                
+                // Procesar filas del CSV
+                const filas = csvText.split("\n").slice(1); 
+                
+                productosData = filas.map(fila => {
+                    const columnas = fila.split(",");
+                    if (columnas.length >= 3) {
+                        return {
+                            nombre: columnas[0].trim(),
+                            precio: columnas[1].trim(),
+                            imagen: columnas[2].trim()
+                        };
+                    }
+                    return null;
+                }).filter(p => p !== null);
+
+                renderizarProductos(productosData);
+            } catch (error) {
+                document.getElementById('catalogo').innerHTML = "Error al cargar el catálogo.";
+            }
+        }
+
+        function renderizarProductos(lista) {
+            const contenedor = document.getElementById('catalogo');
+            contenedor.innerHTML = '';
+
+            lista.forEach(p => {
+                const msj = encodeURIComponent(`Hola! Me interesa el producto: ${p.nombre} ($${p.precio})`);
+                const link = `https://wa.me/${MI_TELEFONO}?text=${msj}`;
+
+                contenedor.innerHTML += `
+                    <div class="card">
+                        <img src="${p.imagen}" alt="${p.nombre}">
+                        <div class="info">
+                            <h3>${p.nombre}</h3>
+                            <p>$${p.precio}</p>
+                            <a href="${link}" target="_blank" class="btn-whatsapp">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filtrarProductos() {
+            const texto = document.getElementById('buscador').value.toLowerCase();
+            const filtrados = productosData.filter(p => 
+                p.nombre.toLowerCase().includes(texto)
+            );
+            renderizarProductos(filtrados);
+        }
+
+        cargarProductos();
+    </script>
+</body>
+</html>
