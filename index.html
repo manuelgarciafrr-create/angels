@@ -32,13 +32,13 @@
         }
 
         .btn-carrito-add {
-            background: #db2777; color: white; border: none; padding: 10px;
+            background: #e784da; color: white; border: none; padding: 10px;
             border-radius: 12px; cursor: pointer; flex: 1; font-size: 1.1rem;
         }
 
         /* Botón flotante verde de WhatsApp Final */
         #btn-flotante {
-            position: fixed; bottom: 20px; right: 20px; background: #25d366; 
+            position: fixed; bottom: 20px; right: 20px; background: #e784da; 
             color: white; padding: 15px 20px; border-radius: 50px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: bold; 
             z-index: 1000; cursor: pointer; display: none; /* Se muestra solo si hay items */
@@ -66,10 +66,10 @@
     </div>
 
     <div id="modal-carrito">
-        <h2 style="color:#be185d; font-family:'Playfair Display'">Tu Pedido</h2>
+        <h2 style="color:#e784da; font-family:'Playfair Display'">Tu Pedido</h2>
         <div id="lista-pedido"></div>
         <p style="font-size: 1.2rem;"><strong>Total: $<span id="total-pedido">0</span></strong></p>
-        <button onclick="comprarTodo()" style="background:#25d366; color:white; border:none; width:100%; padding:15px; border-radius:15px; font-weight:bold; cursor:pointer;">Enviar Pedido a WhatsApp</button>
+        <button onclick="comprarTodo()" style="background:#e784da; color:white; border:none; width:100%; padding:15px; border-radius:15px; font-weight:bold; cursor:pointer;">Comprar</button>
         <button onclick="verResumen()" style="background:none; border:none; color:gray; width:100%; margin-top:10px; cursor:pointer;">Cerrar</button>
     </div>
 
