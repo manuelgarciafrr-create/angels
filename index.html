@@ -7,137 +7,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Estilos generales y móviles */
-        body { 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            background: #fff5f7; 
-            margin: 0; 
-            padding: 15px; 
-            color: #333;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        h1 { 
-    font-family: 'Playfair Display', serif; /* La fuente bonita */
-    color: #be185d; 
-    font-size: 2.5rem; /* Un poco más grande */
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-}
-
-header p {
-    font-family: 'Poppins', sans-serif;
-    color: #f472b6;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Línea decorativa debajo del título */
-header::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #db2777;
-    margin: 10px auto 25px auto;
-    border-radius: 2px;
-}
-
-
-        /* Buscador */
-        #buscador {
-    /* Diseño: Rosado y Redondo */
-    background-color: #fff1f2; /* Un fondo rosado muy claro */
-    border: 2px solid #fbcfe8; /* Borde rosado */
-    border-radius: 50px;       /* Esto lo hace totalmente redondo */
-    padding: 15px 25px;        /* Espacio interno para que no se vea apretado */
-    color: #be185d;            /* Color de la letra al escribir */
-    outline: none;             /* Quita el borde azul feo al hacer clic */
-    
-    /* Centrado y Tamaño */
-    display: block;            /* Permite usar márgenes para centrar */
-    margin: 0 auto 30px auto;  /* El "auto" a los lados lo centra perfectamente */
-    width: 90%;                /* Casi todo el ancho en el celular */
-    max-width: 450px;          /* Para que en PC no se estire demasiado */
-    box-sizing: border-box;    /* Para que el padding no afecte el ancho total */
-    
-    /* Toque profesional */
-    font-size: 16px;           /* Evita que el iPhone haga zoom automático */
-    box-shadow: 0 4px 10px rgba(219, 39, 119, 0.1); /* Una sombrita rosa suave */
-}
-
-#buscador::placeholder {
-    color: #f472b6;            /* Color del texto "Buscar producto..." en rosa */
-}
-
-
-
+        /* --- TUS ESTILOS ORIGINALES (NO TOCADOS) --- */
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #fff5f7; margin: 0; padding: 15px; color: #333; }
+        header { text-align: center; padding: 20px 0; }
+        h1 { font-family: 'Playfair Display', serif; color: #be185d; font-size: 2.5rem; margin-bottom: 5px; letter-spacing: 1px; text-transform: capitalize; }
+        header p { font-family: 'Poppins', sans-serif; color: #f472b6; font-size: 0.9rem; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        header::after { content: ''; display: block; width: 50px; height: 3px; background: #db2777; margin: 10px auto 25px auto; border-radius: 2px; }
+        #buscador { background-color: #fff1f2; border: 2px solid #fbcfe8; border-radius: 50px; padding: 15px 25px; color: #be185d; outline: none; display: block; margin: 0 auto 30px auto; width: 90%; max-width: 450px; box-sizing: border-box; font-size: 16px; box-shadow: 0 4px 10px rgba(219, 39, 119, 0.1); }
+        #buscador::placeholder { color: #f472b6; }
         #buscador:focus { border-color: #db2777; }
-
-        /* Cuadrícula de productos */
-        #catalogo {
-    display: grid;
-    /* Esto hace que si hay espacio libre, las tarjetas se centren */
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    justify-content: center; 
-    gap: 15px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centra el contenedor completo */
-}
-
-
-        /* Tarjeta de producto */
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #fce7f3;
-        }
-
-        .card img { 
-            width: 100%; 
-            height: 170px; 
-            object-fit: cover; 
-            background: #eee;
-        }
-
+        #catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); justify-content: center; gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid #fce7f3; }
+        .card img { width: 100%; height: 170px; object-fit: cover; background: #eee; }
         .info { padding: 12px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-
-        .card h3 { 
-            font-size: 0.9rem; 
-            margin: 5px 0; 
-            color: #444; 
-            height: 38px; 
-            overflow: hidden; 
-        }
-
+        .card h3 { font-size: 0.9rem; margin: 5px 0; color: #444; height: 38px; overflow: hidden; }
         .card p { color: #db2777; font-weight: bold; font-size: 1.1rem; margin: 8px 0; }
 
-        /* Botón WhatsApp */
-        .btn-whatsapp {
-            background: #e784da;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-top: auto;
-            transition: 0.3s;
+        /* --- NUEVOS ESTILOS PARA EL CARRITO --- */
+        .botones-container { display: flex; gap: 5px; margin-top: auto; }
+        
+        .btn-whatsapp { 
+            background: #e784da; color: white; text-decoration: none; padding: 10px; 
+            border-radius: 12px; font-weight: bold; font-size: 0.85rem; flex: 2; text-align: center;
         }
 
-        .btn-whatsapp:active { transform: scale(0.95); background: #128c7e; }
+        .btn-carrito-add {
+            background: #db2777; color: white; border: none; padding: 10px;
+            border-radius: 12px; cursor: pointer; flex: 1; font-size: 1.1rem;
+        }
+
+        /* Botón flotante verde de WhatsApp Final */
+        #btn-flotante {
+            position: fixed; bottom: 20px; right: 20px; background: #25d366; 
+            color: white; padding: 15px 20px; border-radius: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: bold; 
+            z-index: 1000; cursor: pointer; display: none; /* Se muestra solo si hay items */
+        }
+
+        #modal-carrito {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: white; width: 90%; max-width: 400px; padding: 20px;
+            border-radius: 25px; box-shadow: 0 0 30px rgba(0,0,0,0.3); z-index: 1001;
+        }
+        .item-pedido { display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -149,20 +61,31 @@ header::after {
 
     <div id="catalogo">Cargando productos...</div>
 
+    <div id="btn-flotante" onclick="verResumen()">
+        🛒 Ver Pedido (<span id="cant-carrito">0</span>)
+    </div>
+
+    <div id="modal-carrito">
+        <h2 style="color:#be185d; font-family:'Playfair Display'">Tu Pedido</h2>
+        <div id="lista-pedido"></div>
+        <p style="font-size: 1.2rem;"><strong>Total: $<span id="total-pedido">0</span></strong></p>
+        <button onclick="comprarTodo()" style="background:#25d366; color:white; border:none; width:100%; padding:15px; border-radius:15px; font-weight:bold; cursor:pointer;">Enviar Pedido a WhatsApp</button>
+        <button onclick="verResumen()" style="background:none; border:none; color:gray; width:100%; margin-top:10px; cursor:pointer;">Cerrar</button>
+    </div>
+
     <script>
         const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSzQ1wQGpHUJM47tE1FTd84J6JZSFHcCFVTwjwATQqFHJFxDFjORM4tEK5WcHAyCFe43PdrkVS60m9d/pub?output=csv'; 
         const MI_TELEFONO = "584124132220"; 
-        
-        let productosData = []; // Guardaremos los productos aquí para el buscador
+
+        let productosData = []; 
+        let carrito = []; // Bolsa de compras
 
         async function cargarProductos() {
             try {
                 const respuesta = await fetch(SHEET_URL);
                 const csvText = await respuesta.text();
-                
-                // Procesar filas del CSV
                 const filas = csvText.split("\n").slice(1); 
-                
+
                 productosData = filas.map(fila => {
                     const columnas = fila.split(",");
                     if (columnas.length >= 3) {
@@ -186,8 +109,7 @@ header::after {
             contenedor.innerHTML = '';
 
             lista.forEach(p => {
-                const msj = encodeURIComponent(`Hola! Me interesa el producto: ${p.nombre} ($${p.precio})`);
-                const link = `https://wa.me/${MI_TELEFONO}?text=${msj}`;
+                const linkIndividual = `https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent('Hola! Me interesa: ' + p.nombre)}`;
 
                 contenedor.innerHTML += `
                     <div class="card">
@@ -195,20 +117,58 @@ header::after {
                         <div class="info">
                             <h3>${p.nombre}</h3>
                             <p>$${p.precio}</p>
-                            <a href="${link}" target="_blank" class="btn-whatsapp">
-                                Comprar
-                            </a>
+                            <div class="botones-container">
+                                <a href="${linkIndividual}" target="_blank" class="btn-whatsapp">Comprar</a>
+                                <button class="btn-carrito-add" onclick="alCarrito('${p.nombre}', '${p.precio}')">🛒</button>
+                            </div>
                         </div>
                     </div>
                 `;
             });
         }
 
+        // LÓGICA DEL CARRITO
+        function alCarrito(nombre, precio) {
+            carrito.push({ nombre, precio: parseFloat(precio) });
+            document.getElementById('cant-carrito').innerText = carrito.length;
+            document.getElementById('btn-flotante').style.display = 'block';
+            
+            // Efecto visual rápido
+            const btn = document.getElementById('btn-flotante');
+            btn.style.transform = 'translateX(-50%) scale(1.1)';
+            setTimeout(() => btn.style.transform = 'translateX(0) scale(1)', 200);
+        }
+
+        function verResumen() {
+            const modal = document.getElementById('modal-carrito');
+            const listaDiv = document.getElementById('lista-pedido');
+            const totalSpan = document.getElementById('total-pedido');
+            
+            modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+            
+            listaDiv.innerHTML = '';
+            let total = 0;
+            carrito.forEach(item => {
+                listaDiv.innerHTML += `<div class="item-pedido"><span>${item.nombre}</span><span>$${item.precio}</span></div>`;
+                total += item.precio;
+            });
+            totalSpan.innerText = total.toFixed(2);
+        }
+
+        function comprarTodo() {
+            if (carrito.length === 0) return;
+            let msj = "¡Hola Angels! Quiero hacer este pedido:\n\n";
+            carrito.forEach(item => {
+                msj += `- ${item.nombre} ($${item.precio})\n`;
+            });
+            msj += `\n*Total a pagar: $${document.getElementById('total-pedido').innerText}*`;
+            
+            window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(msj)}`, '_blank');
+        }
+
         function filtrarProductos() {
             const texto = document.getElementById('buscador').value.toLowerCase();
-            const filtrados = productosData.filter(p => 
-                p.nombre.toLowerCase().includes(texto)
-            );
+            const filtrados = productosData.filter(p => p.nombre.toLowerCase().includes(texto));
             renderizarProductos(filtrados);
         }
 
