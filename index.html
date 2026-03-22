@@ -40,12 +40,15 @@
 
         /* Cuadrícula de productos */
         #catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    display: grid;
+    /* Esto hace que si hay espacio libre, las tarjetas se centren */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    justify-content: center; 
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor completo */
+}
+
 
         /* Tarjeta de producto */
         .card {
