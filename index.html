@@ -22,19 +22,19 @@
         h1 { color: #be185d; margin-bottom: 15px; font-size: 1.8rem; }
 
         /* Buscador */
-        #buscador {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 2px solid #fbcfe8;
-            border-radius: 25px;
-            font-size: 1rem;
-            margin-bottom: 25px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            outline: none;
-        }
+        ##buscador {
+    width: 90%; /* Ocupa casi todo el ancho en móvil */
+    max-width: 400px; /* No se hace gigante en PC */
+    padding: 12px 20px;
+    border: 2px solid #fbcfe8;
+    border-radius: 25px;
+    font-size: 1rem;
+    display: block; /* Importante para que el margen funcione */
+    margin: 0 auto 30px auto; /* Centra horizontalmente y da espacio abajo */
+    outline: none;
+    box-sizing: border-box; /* Evita que el padding lo estire de más */
+}
+
 
         #buscador:focus { border-color: #db2777; }
 
