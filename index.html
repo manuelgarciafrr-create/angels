@@ -22,18 +22,31 @@
         h1 { color: #be185d; margin-bottom: 15px; font-size: 1.8rem; }
 
         /* Buscador */
-        ##buscador {
-    width: 90%; /* Ocupa casi todo el ancho en móvil */
-    max-width: 400px; /* No se hace gigante en PC */
-    padding: 12px 20px;
-    border: 2px solid #fbcfe8;
-    border-radius: 25px;
-    font-size: 1rem;
-    display: block; /* Importante para que el margen funcione */
-    margin: 0 auto 30px auto; /* Centra horizontalmente y da espacio abajo */
-    outline: none;
-    box-sizing: border-box; /* Evita que el padding lo estire de más */
+        #buscador {
+    /* Diseño: Rosado y Redondo */
+    background-color: #fff1f2; /* Un fondo rosado muy claro */
+    border: 2px solid #fbcfe8; /* Borde rosado */
+    border-radius: 50px;       /* Esto lo hace totalmente redondo */
+    padding: 15px 25px;        /* Espacio interno para que no se vea apretado */
+    color: #be185d;            /* Color de la letra al escribir */
+    outline: none;             /* Quita el borde azul feo al hacer clic */
+    
+    /* Centrado y Tamaño */
+    display: block;            /* Permite usar márgenes para centrar */
+    margin: 0 auto 30px auto;  /* El "auto" a los lados lo centra perfectamente */
+    width: 90%;                /* Casi todo el ancho en el celular */
+    max-width: 450px;          /* Para que en PC no se estire demasiado */
+    box-sizing: border-box;    /* Para que el padding no afecte el ancho total */
+    
+    /* Toque profesional */
+    font-size: 16px;           /* Evita que el iPhone haga zoom automático */
+    box-shadow: 0 4px 10px rgba(219, 39, 119, 0.1); /* Una sombrita rosa suave */
 }
+
+#buscador::placeholder {
+    color: #f472b6;            /* Color del texto "Buscar producto..." en rosa */
+}
+
 
 
         #buscador:focus { border-color: #db2777; }
